@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AI_WrongNote</string>
+    <string name="menu_title_game">游戏场景</string>
+    <string name="menu_title_home">主页</string>
+    <string name="menu_title_note">错题本</string>
 </resources>
