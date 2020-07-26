@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
         val configuration =
             AppBarConfiguration.Builder(bottomNavigationView.menu).build()
         //绑定顶部title
-        NavigationUI.setupActionBarWithNavController(this, navController, configuration)
+        //NavigationUI.setupActionBarWithNavController(this, navController, configuration)
 
 
         //启动连接数据库
        // Thread(Runnable { DBConnection.link() }).start()
+
     }
 }
