@@ -16,24 +16,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //绑定底部导航条
-        /*val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        val navController = findNavController(R.id.fragment)
-        val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.homeFragment,R.id.gameFragment,R.id.noteFragment))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        bottomNavigationView.setupWithNavController(navController)*/
-
-       val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        //绑定底部导航栏和顶部title
+        //获得BottomNavigationView
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        //获得Navigation的Control
         val navController = Navigation.findNavController(this, R.id.fragment_nav)
+        //绑定
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+        //获取顶部appBar
         val configuration =
             AppBarConfiguration.Builder(bottomNavigationView.menu).build()
+        //绑定顶部title
         NavigationUI.setupActionBarWithNavController(this, navController, configuration)
-        NavigationUI.setupWithNavController(bottomNavigationView, navController)
-
-
-      //测试GitHub
-
-        //lx测试Github
 
 
         //启动连接数据库
