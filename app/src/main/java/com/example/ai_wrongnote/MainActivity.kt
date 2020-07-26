@@ -24,14 +24,14 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)*/
 
        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
-        val navController = Navigation.findNavController(this, R.id.fragment_home)
+        val navController = Navigation.findNavController(this, R.id.fragment_nav)
         val configuration =
             AppBarConfiguration.Builder(bottomNavigationView.menu).build()
         NavigationUI.setupActionBarWithNavController(this, navController, configuration)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
 
-
+      //测试GitHub
 
 
         //启动连接数据库
