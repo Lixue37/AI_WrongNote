@@ -3,4 +3,5 @@
     <string name="menu_title_game">游戏场景</string>
     <string name="menu_title_home">主页</string>
     <string name="menu_title_note">错题本</string>
+    <string name="notePointText">本错题所对应的知识点</string>
 </resources>

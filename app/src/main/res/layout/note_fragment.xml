@@ -6,10 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".NoteFragment">
 
-    <TextView
-        android:id="@+id/noteText"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/note_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/menu_title_note" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>
