@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
       //测试GitHub
 
+        //lx测试Github
+
 
         //启动连接数据库
        // Thread(Runnable { DBConnection.link() }).start()
