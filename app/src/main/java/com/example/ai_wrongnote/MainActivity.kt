@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val configuration =
             AppBarConfiguration.Builder(bottomNavigationView.menu).build()
         //绑定顶部title
-        //NavigationUI.setupActionBarWithNavController(this, navController, configuration)
+        NavigationUI.setupActionBarWithNavController(this, navController, configuration)
 
 
         //启动连接数据库
@@ -37,8 +37,4 @@ class MainActivity : AppCompatActivity() {
 }
 
 
-//13:11 李雪加一行测试
-//wmq测试 13:06新增第一条测试
-
-//wmq测试 13:11 新增第二条测试。
 
