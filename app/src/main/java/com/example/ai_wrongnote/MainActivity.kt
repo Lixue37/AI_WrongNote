@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         //启动连接数据库
        // Thread(Runnable { DBConnection.link() }).start()
-
     }
 }
 

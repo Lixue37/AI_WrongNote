@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_fragement"
     android:layout_width="match_parent"
@@ -14,9 +15,16 @@
 
     <Button
         android:id="@+id/camera"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center|top|center_vertical"
+        android:background="@drawable/ic_camera" />
+
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="拍照" />
+        android:layout_gravity="center"
+        tools:src="@tools:sample/avatars" />
 
 </FrameLayout>
