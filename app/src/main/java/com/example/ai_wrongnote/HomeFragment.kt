@@ -3,23 +3,28 @@ package com.example.ai_wrongnote
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateFormat
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.home_fragment.*
+import org.jetbrains.anko.support.v4.startActivity
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
 
 
 class HomeFragment : Fragment() {
+
+    lateinit var photoUri: Uri
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -67,11 +72,22 @@ class HomeFragment : Fragment() {
             val file = File(path,filename)
             val fos = FileOutputStream(file)
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100,fos)
+            photoUri=Uri.fromFile(file)
 
             fos.flush()
             fos.close()
 
             imageView3.setImageBitmap(bitmap)
+
+
+
+//            val intent=Intent(context,GetAnswerActivity::class.java)
+//            startActivity(intent)
+
+            val intent=Intent(context,GetQuestionActivity::class.java)
+            intent.putExtra("photoUri",photoUri.toString())
+            startActivity(intent)
+
         }
     }
 }

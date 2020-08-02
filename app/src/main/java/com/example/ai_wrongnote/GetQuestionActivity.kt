@@ -1,18 +1,29 @@
 package com.example.ai_wrongnote
 
-import android.content.Intent
+
+import android.net.Uri
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
+import kotlinx.android.synthetic.main.get_question_activity.*
+import org.jetbrains.anko.startActivity
 
 class GetQuestionActivity : AppCompatActivity(){
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState)
 
+    lateinit var photoUri: Uri
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.get_question_activity)
 
-        val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent,1)
+        photoUri=intent.extras!!.getString("photoUri")!!.toUri()
+        textView3.text="$photoUri" // 多余测试代码
+
+        img_question.setImageURI(photoUri)
+
+        save.setOnClickListener {
+            startActivity<GetAnswerActivity>()
+        }
+
     }
 }
