@@ -5,4 +5,10 @@
     <string name="menu_title_note">错题本</string>
     <string name="insufficient_memory">内存不足</string>
     <string name="notePointText">本错题所对应的知识点</string>
+    <string-array name="know_point">
+        <item>三角形</item>
+        <item>正方形</item>
+        <item>长方形</item>
+        <item>圆形</item>
+    </string-array>
 </resources>
