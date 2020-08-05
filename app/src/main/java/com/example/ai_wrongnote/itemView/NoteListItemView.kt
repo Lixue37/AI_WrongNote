@@ -1,4 +1,4 @@
-package itemView
+package com.example.ai_wrongnote.itemView
 
 import android.content.Context
 import android.util.AttributeSet

@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.ai_wrongnote.HomeFragment"
+        android:name="com.example.ai_wrongnote.fragment.HomeFragment"
         android:label="@string/menu_title_home"
         tools:layout="@layout/home_fragment" />
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.ai_wrongnote.GameFragment"
+        android:name="com.example.ai_wrongnote.fragment.GameFragment"
         android:label="@string/menu_title_game"
         tools:layout="@layout/game_fragment" />
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.example.ai_wrongnote.NoteFragment"
+        android:name="com.example.ai_wrongnote.fragment.NoteFragment"
         android:label="@string/menu_title_note"
         tools:layout="@layout/note_fragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.ai_wrongnote
+package com.example.ai_wrongnote.fragment
 
 import android.app.Activity
 import android.content.Intent
@@ -14,6 +14,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.ai_wrongnote.HomeViewModel
+import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.GetQuestionActivity
 import kotlinx.android.synthetic.main.home_fragment.*
 import java.io.File
