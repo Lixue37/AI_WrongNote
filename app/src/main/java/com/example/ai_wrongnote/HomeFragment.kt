@@ -9,14 +9,13 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateFormat
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.ai_wrongnote.activity.GetQuestionActivity
 import kotlinx.android.synthetic.main.home_fragment.*
-import org.jetbrains.anko.support.v4.startActivity
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -84,7 +83,8 @@ class HomeFragment : Fragment() {
 //            val intent=Intent(context,GetAnswerActivity::class.java)
 //            startActivity(intent)
 
-            val intent=Intent(context,GetQuestionActivity::class.java)
+            val intent=Intent(context,
+                GetQuestionActivity::class.java)
             intent.putExtra("photoUri",photoUri.toString())
             startActivity(intent)
 
