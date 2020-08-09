@@ -11,4 +11,12 @@
         <item>长方形</item>
         <item>圆形</item>
     </string-array>
+    //以下两个字符数组用来表示每个错题条目需要的文本数据。暂时代替从数据库里读取的对应的数据
+    //其中一个用上面的know_point代替，所以写了一个
+    <string-array name="note_time">
+        <item>20200707</item>
+        <item>20200808</item>
+        <item>20200909</item>
+        <item>20201010</item>
+    </string-array>
 </resources>
