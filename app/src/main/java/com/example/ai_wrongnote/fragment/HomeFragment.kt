@@ -79,10 +79,9 @@ class HomeFragment : Fragment() {
             fos.flush()
             fos.close()
 
-            //bitmap = createPhotos(bitmap);
+            bitmap = createPhotos(bitmap);
 
             imageView3.setImageBitmap(bitmap)
-
 
 
 //            val intent=Intent(context,GetAnswerActivity::class.java)
@@ -121,6 +120,4 @@ class HomeFragment : Fragment() {
         }
         return bitmap!!
     }
-
-    
 }
