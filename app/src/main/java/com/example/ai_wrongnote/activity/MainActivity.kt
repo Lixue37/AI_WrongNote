@@ -1,4 +1,4 @@
-package com.example.ai_wrongnote
+package com.example.ai_wrongnote.activity
 
 
 
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.example.ai_wrongnote.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         //获得BottomNavigationView
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         //获得Navigation的Control
-        val navController = Navigation.findNavController(this, R.id.fragment_nav)
+        val navController = Navigation.findNavController(this,
+            R.id.fragment_nav
+        )
         //绑定
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
         //获取顶部appBar

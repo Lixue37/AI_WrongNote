@@ -1,4 +1,4 @@
-package com.example.ai_wrongnote
+package com.example.ai_wrongnote.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.ai_wrongnote.NoteViewModel
+import com.example.ai_wrongnote.R
 
 
 class NoteFragment : Fragment() {
