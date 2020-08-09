@@ -1,6 +1,6 @@
 package com.example.ai_wrongnote.fragment
 
-import android.graphics.Rect
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
