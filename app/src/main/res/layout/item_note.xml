@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +9,7 @@
         android:id="@+id/note_point_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/notePointText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,20 +23,20 @@
         android:id="@+id/note_photo_item"
         android:layout_width="356dp"
         android:layout_height="112dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/note_point_text"
-        app:layout_constraintVertical_bias="0.059"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_note_photo" />
 
     <TextView
         android:id="@+id/note_time_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
         android:text="录入日期：2020-07-26"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,4 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/note_photo_item"
         app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="352dp"
+        android:layout_height="8dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/GreenDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/note_photo_item"
+        app:layout_constraintStart_toStartOf="@+id/note_photo_item"
+        app:layout_constraintTop_toBottomOf="@+id/note_time_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

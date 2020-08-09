@@ -12,6 +12,7 @@ import com.example.ai_wrongnote.NoteViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.adapter.NoteAdapter
 import data.NoteListItem
+import data.NoteTimeListItem
 import kotlinx.android.synthetic.main.note_fragment.*
 import org.jetbrains.anko.toast
 
@@ -21,7 +22,7 @@ class NoteFragment : Fragment() {
     companion object {
         fun newInstance() = NoteFragment()
     }
-    //上下自动生成的
+    //上下语句是自动生成的
     private lateinit var viewModel: NoteViewModel
 
     /*没写BaseFragment的后果就是，onCreateView函数和onViewCreated函数每次都要写。另外onActivityCreated
@@ -83,7 +84,8 @@ class NoteFragment : Fragment() {
         context?.toast("加载成功")
     }
 
-    val noteListItems= mutableListOf<NoteListItem>()
+    val noteListItems = mutableListOf<NoteListItem>()
+    val noteTimeListItems = mutableListOf<NoteTimeListItem>()
 
     //presenter层的实现
     fun loadNotes(){
@@ -96,18 +98,44 @@ class NoteFragment : Fragment() {
             //先用自定义的数组里的数据是实现，后期再连数据库
         //再次加载数据之前要清空数据集合
         noteListItems.clear()
+
+        //尝试创建数据集合
+        /*class NoteData{
             val note_point_texts = context?.resources?.getStringArray(R.array.know_point)
             //val note_photo_items =
             // 暂时没写图片的列表
             val note_time_texts = context?.resources?.getStringArray(R.array.note_time)
 
+        }
+        val noteData = mutableListOf<NoteData>()
+
+        //读取完数据之后需要做转换。上面定义的变量只是代表加载出来的数据。还需把加载出来的数据转换成UI界面需要看到的数据
+        noteData?.forEach {
+            val noteListItem = NoteListItem(it.note_point_texts.toString(),it.note_time_texts.toString())
+            //把创建好的加入到可变的数据集合当中
+            noteListItems.add(noteListItem)
+            //然后去通知view层。让adapter去维护数据集合
+        }*/
+
+        //另一种分散着写变量的方式。分散着写会有乱码，但是……暂时不知道怎么把note_point_texts和
+        // note_time_texts先组合成一个数据集，再对整体forEach，用.的方式往NoteListItem中添加
+        val note_point_texts = context?.resources?.getStringArray(R.array.know_point)
+        //val note_photo_items =
+        // 暂时没写图片的列表
+        val note_time_texts = context?.resources?.getStringArray(R.array.note_time)
+
         //读取完数据之后需要做转换。上面定义的变量只是代表加载出来的数据。还需把加载出来的数据转换成UI界面需要看到的数据
         note_point_texts?.forEach {
-            val noteListItem = NoteListItem(it, note_time_texts.toString())
+            val noteListItem = NoteListItem(it,note_time_texts.toString())
             //把创建好的加入到可变的数据集合当中
             noteListItems.add(noteListItem)
             //然后去通知view层。让adapter去维护数据集合
         }
+
+        /*note_time_texts?.forEach {
+            val noteTimeListItem = NoteTimeListItem(it)
+            noteTimeListItems.add(noteTimeListItem)
+        }*/
 
 
         //成功的话通知view层

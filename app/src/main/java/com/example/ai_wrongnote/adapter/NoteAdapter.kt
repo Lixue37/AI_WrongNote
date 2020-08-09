@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ai_wrongnote.activity.NoteDetailActivity
 import com.example.ai_wrongnote.itemView.NoteListItemView
 import data.NoteListItem
+import org.jetbrains.anko.startActivity
 
 class NoteAdapter(
     val context: Context,
@@ -25,6 +27,11 @@ class NoteAdapter(
         //拿到holder hold住的item
         val noteListItemView = holder.itemView as NoteListItemView
         noteListItemView.bindView(noteListItems[position])
+
+        val knowPoint = noteListItems[position].NotePoint
+        //点击item跳转到对应的详情页面 首先在这里设置监听事件
+        noteListItemView.setOnClickListener{ context.startActivity<NoteDetailActivity>("knowpoint_data_txt" to knowPoint) }
+        //跳转过去时要传递过去对应的数据，所以在上一句的上面先定义好变量
     }
 
     //创建一个viewHolder 为了让第一个函数有所返回。这个viewholder它hold住的是一个个条目
