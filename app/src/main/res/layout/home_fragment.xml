@@ -10,16 +10,24 @@
         android:id="@+id/homeText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/menu_title_home" />
+        android:layout_marginBottom="32dp"
+        android:text="@string/menu_title_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/camera"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_gravity="center|top|center_vertical"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/homeText" />
 
@@ -34,14 +42,15 @@
         tools:src="@tools:sample/avatars" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="664dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tuijian_recyclerview"
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="72dp"
+        android:background="#CCF6CE"
+        android:scrollbarSize="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/homeText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/homeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

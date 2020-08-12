@@ -221,7 +221,7 @@
         app:layout_constraintTop_toBottomOf="@+id/note_photo_problem" />
 
     <TextView
-        android:id="@+id/knowpoint_data_txt"
+        android:id="@+id/knowpoint_tui_data_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -251,7 +251,7 @@
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/how_control_text2"
-        app:layout_constraintTop_toBottomOf="@+id/knowpoint_data_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/knowpoint_tui_data_txt" />
 
     <TextView
         android:id="@+id/how_hard_text2"
@@ -264,7 +264,7 @@
         app:layout_constraintTop_toTopOf="@+id/how_control_data_txt" />
 
     <TextView
-        android:id="@+id/how_hard_data_txt"
+        android:id="@+id/how_hard_tui_data_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
