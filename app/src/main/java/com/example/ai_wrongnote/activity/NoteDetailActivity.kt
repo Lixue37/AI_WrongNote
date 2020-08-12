@@ -25,7 +25,7 @@ class NoteDetailActivity:AppCompatActivity() {
 
           //获取该页面上的五个数据
           val knowpoint_data = intent.getStringExtra("knowpoint_data_txt")
-          knowpoint_tui_data_txt.text=knowpoint_data
+          commend_point_data_text.text=knowpoint_data
      }
 
      //fun getLayoutResId():Int = R.layout.activity_note

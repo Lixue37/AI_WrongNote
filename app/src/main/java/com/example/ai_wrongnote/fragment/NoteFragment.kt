@@ -1,13 +1,11 @@
 package com.example.ai_wrongnote.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ai_wrongnote.NoteViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.adapter.NoteAdapter
@@ -42,7 +40,7 @@ class NoteFragment : Fragment() {
     //这是view层
     fun init() {
         //下拉刷新的进度条
-        swipeRefresh.apply{
+        swipeRefresh_home.apply{
             setColorSchemeResources(R.color.GreenDark)
             isRefreshing = true
             //设置监听器，当用户手动下拉刷新的时候也要刷新数据
@@ -73,13 +71,13 @@ class NoteFragment : Fragment() {
     //两个函数对应的功能：提示加载列表失败了还是成功了。这是view层的实现
     fun onLoadNotesFailed(){
         //隐藏进度条并提示用户加载失败
-        swipeRefresh.isRefreshing = false
+        swipeRefresh_home.isRefreshing = false
         context?.toast("加载错题列表失败")
     }
 
     fun onLoadNotesSuccess(){
         //加载成功之后要刷新一下数据
-        swipeRefresh.isRefreshing = false
+        swipeRefresh_home.isRefreshing = false
         note_recyclerview.adapter?.notifyDataSetChanged()
         context?.toast("加载成功")
     }

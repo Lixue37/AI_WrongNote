@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tuijian_answer_text2"
+        android:id="@+id/commend_data_text"
         android:layout_width="197dp"
         android:layout_height="64dp"
         android:text="这里是推荐的习题题干"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="@+id/few_btn" />
 
     <Button
-        android:id="@+id/amend_btn"
+        android:id="@+id/join_btn"
         android:layout_width="76dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
@@ -138,10 +138,10 @@
         android:layout_marginTop="8dp"
         android:text="知识点："
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tuijian_answer_text2" />
+        app:layout_constraintTop_toBottomOf="@+id/commend_data_text" />
 
     <TextView
-        android:id="@+id/knowpoint_tui_data_txt"
+        android:id="@+id/commend_point_data_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -156,11 +156,11 @@
         android:layout_height="wrap_content"
         android:text="习题难度："
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toEndOf="@+id/knowpoint_tui_data_txt"
-        app:layout_constraintTop_toTopOf="@+id/knowpoint_tui_data_txt" />
+        app:layout_constraintStart_toEndOf="@+id/commend_point_data_text"
+        app:layout_constraintTop_toTopOf="@+id/commend_point_data_text" />
 
     <TextView
-        android:id="@+id/how_hard_tui_data_txt"
+        android:id="@+id/commend_how_hard_data_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -172,7 +172,7 @@
         app:layout_constraintTop_toTopOf="@+id/how_hard_text2" />
 
     <TextView
-        android:id="@+id/tuijian_answer_text"
+        android:id="@+id/commend_answer_text"
         android:layout_width="124dp"
         android:layout_height="59dp"
         android:layout_marginTop="8dp"
@@ -207,6 +207,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="系统推荐习题："
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 

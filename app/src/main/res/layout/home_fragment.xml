@@ -8,49 +8,58 @@
 
     <TextView
         android:id="@+id/homeText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="123dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="32dp"
         android:text="@string/menu_title_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/camera"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_gravity="center|top|center_vertical"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toEndOf="@+id/camera"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tuijian_recyclerview"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh_home"
         android:layout_width="300dp"
         android:layout_height="450dp"
-        android:layout_marginBottom="72dp"
-        android:background="#CCF6CE"
-        android:scrollbarSize="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/homeText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.864">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commend_recyclerview"
+            android:layout_width="300dp"
+            android:layout_height="450dp"
+            android:layout_marginBottom="72dp"
+            android:background="#CCF6CE"
+            android:scrollbarSize="8dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

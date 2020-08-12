@@ -51,6 +51,12 @@ class HomeFragment : Fragment() {
             val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(intent,1)
         }
+
+        init()
+    }
+
+    private fun init() {
+        homeText.text="初始化函数起效"
     }
 
     // 重载onActivityResult方法
