@@ -30,7 +30,7 @@ class NoteAdapter(
 
         val knowPoint = noteListItems[position].NotePoint
         //点击item跳转到对应的详情页面 首先在这里设置监听事件
-        noteListItemView.setOnClickListener{ context.startActivity<NoteDetailActivity>("knowpoint_data_txt" to knowPoint) }
+        noteListItemView.setOnClickListener{ context.startActivity<NoteDetailActivity>("knowpoint_data_text" to knowPoint) }
         //跳转过去时要传递过去对应的数据，所以在上一句的上面先定义好变量
     }
 

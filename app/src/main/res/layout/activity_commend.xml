@@ -154,8 +154,9 @@
         android:id="@+id/how_hard_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:text="习题难度："
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toEndOf="@+id/commend_point_data_text"
         app:layout_constraintTop_toTopOf="@+id/commend_point_data_text" />
 
@@ -167,7 +168,7 @@
         android:layout_marginLeft="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toEndOf="@+id/how_hard_text2"
         app:layout_constraintTop_toTopOf="@+id/how_hard_text2" />
 

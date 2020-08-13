@@ -40,7 +40,7 @@ class NoteFragment : Fragment() {
     //这是view层
     fun init() {
         //下拉刷新的进度条
-        swipeRefresh_home.apply{
+        swipeRefresh.apply{
             setColorSchemeResources(R.color.GreenDark)
             isRefreshing = true
             //设置监听器，当用户手动下拉刷新的时候也要刷新数据
@@ -61,23 +61,18 @@ class NoteFragment : Fragment() {
         loadNotes()
 
     }
-    /*override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NoteViewModel::class.java)
-        // TODO: Use the ViewModel
-    }*/
 
     //没有抽取对应的contract，所以这些函数不是继承来的，新建的。（如果抽取了就应该是继承接口而写的）
     //两个函数对应的功能：提示加载列表失败了还是成功了。这是view层的实现
     fun onLoadNotesFailed(){
         //隐藏进度条并提示用户加载失败
-        swipeRefresh_home.isRefreshing = false
+        swipeRefresh.isRefreshing = false
         context?.toast("加载错题列表失败")
     }
 
     fun onLoadNotesSuccess(){
         //加载成功之后要刷新一下数据
-        swipeRefresh_home.isRefreshing = false
+        swipeRefresh.isRefreshing = false
         note_recyclerview.adapter?.notifyDataSetChanged()
         context?.toast("加载成功")
     }
