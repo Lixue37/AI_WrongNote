@@ -19,4 +19,10 @@
         <item>20200909</item>
         <item>20201010</item>
     </string-array>
+    <string-array name="commend_data">
+        <item>三角形有三条边</item>
+        <item>正方形有四条等长的边</item>
+        <item>长方形有四条边，两两等长</item>
+        <item>圆形没有边</item>
+    </string-array>
 </resources>

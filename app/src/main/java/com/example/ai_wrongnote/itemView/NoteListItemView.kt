@@ -16,7 +16,7 @@ class NoteListItemView(context: Context?, attrs: AttributeSet?=null) : RelativeL
 
     //在这里给UI上对应位置的变量赋值！！！
     fun bindView(noteListItem: NoteListItem) {
-        note_point_text.text = noteListItem.NotePoint
+        know_point_text.text = noteListItem.NotePoint
         //中间还有个图片的绑定。暂留
         note_time_text.text = noteListItem.NoteTime
     }

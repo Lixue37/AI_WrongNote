@@ -24,8 +24,8 @@ class NoteDetailActivity:AppCompatActivity() {
           note_photo_answer.visibility = View.INVISIBLE
 
           //获取该页面上的五个数据
-          val knowpoint_data = intent.getStringExtra("knowpoint_data_txt")
-          knowpoint_data_txt.text=knowpoint_data
+          val knowpoint_data = intent.getStringExtra("knowpoint_data_text")
+          know_point_data_text.text=knowpoint_data
      }
 
      //fun getLayoutResId():Int = R.layout.activity_note

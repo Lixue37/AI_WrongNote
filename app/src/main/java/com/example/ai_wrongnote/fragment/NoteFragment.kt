@@ -1,13 +1,11 @@
 package com.example.ai_wrongnote.fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ai_wrongnote.NoteViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.adapter.NoteAdapter
@@ -64,11 +62,6 @@ class NoteFragment : Fragment() {
         loadNotes()
 
     }
-    /*override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NoteViewModel::class.java)
-        // TODO: Use the ViewModel
-    }*/
 
     //没有抽取对应的contract，所以这些函数不是继承来的，新建的。（如果抽取了就应该是继承接口而写的）
     //两个函数对应的功能：提示加载列表失败了还是成功了。这是view层的实现

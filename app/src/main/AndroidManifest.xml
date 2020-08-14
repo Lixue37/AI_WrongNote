@@ -24,6 +24,7 @@
         <activity android:name=".activity.GetQuestionActivity" />
         <activity android:name=".activity.GetAnswerActivity" />
         <activity android:name=".activity.NoteDetailActivity" />
+        <activity android:name=".activity.CommendDetailActivity" />
     </application>
 
 </manifest>
