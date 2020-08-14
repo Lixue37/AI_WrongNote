@@ -18,7 +18,7 @@ android {
 
     android.defaultConfig.vectorDrawables.useSupportLibrary = true
 
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = 1.8
     }
 
@@ -47,5 +47,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
 
-    implementation "org.jetbrains.anko:anko:0.10.8" //Anko通用库
+    implementation "org.jetbrains.anko:anko:0.10.8"  //Anko通用库
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation files('libs/ocr-sdk.jar')
+//    implementation"sun"
+
+
+    //implementation 'com.github.heynchy:BaiduOCR:v0.1'
 }
