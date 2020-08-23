@@ -1,6 +1,7 @@
 package com.example.ai_wrongnote.fragment
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -16,18 +17,24 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
+import com.example.ai_wrongnote.BaseFragment
 import com.example.ai_wrongnote.HomeViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.GetQuestionActivity
 import com.example.ai_wrongnote.adapter.CommendAdapter
-import com.example.ai_wrongnote.adapter.NoteAdapter
-import data.CommendListItem
+import data.CommendData
+import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.home_fragment.*
-import kotlinx.android.synthetic.main.note_fragment.*
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
+import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
+import kotlinx.android.synthetic.main.activity_test.button as button1
 
 
 class HomeFragment : Fragment() {
@@ -47,6 +54,7 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
@@ -54,70 +62,78 @@ class HomeFragment : Fragment() {
 
         //拍照功能实现
         camera.setOnClickListener {
-            val intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent,1)
+            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(intent, 1)
         }
 
         init()
     }
 
-    //以下是recyclerview的相关代码
+    //以下是recyclerview的相关代码  (新版）
+
+    fun loadNotes() {
+        //读取json数据的实现
+        val queue =
+            Volley.newRequestQueue(getActivity()?.getApplicationContext()) //getActivity()?.getApplicationContext() 或者 getActivity() getContext()
+        val commend_datas = mutableListOf<CommendData>()
+
+
+        //button.setOnClickListener {
+        commend_datas.clear()
+        val jsonArrayRequest = JsonArrayRequest(
+            "http://47.102.140.185:8080/TestHandler.ashx",
+            Response.Listener {
+                for (i in 0..it.length() - 1) {
+                    val item = it.get(i) as JSONObject
+                    val know_point = item["know_point"] as String
+                    val note_data = item["note_data"] as String
+                    val how_hard = item["how_hard"] as String
+                    val how_control = item["how_control"] as String
+                    val answer = item["answer"] as String
+
+                    val commend_data =
+                        CommendData(know_point, note_data, how_hard, how_control, answer)
+                    commend_datas.add(commend_data)
+
+//                    lable1.append("${commend_data}\n")
+
+                    commend_recyclerview.apply {
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(context)
+                        //绑定第三步。做好adapter之后再回来绑定就可以
+                        adapter = CommendAdapter(context, commend_datas)
+                    }
+                }
+            },
+            Response.ErrorListener {
+                //lable1.text = it.message
+                toast("请求数据失败")
+            }
+        )
+
+        queue.add(jsonArrayRequest)
+        //加载成功之后
+        onLoadNotesSuccess()
+    }
+
 
     fun init() {
-        //homeText.text="初始化函数起效"
-        //下拉刷新的进度条
-        swipeRefresh_home.apply{
+        swipeRefresh_home.apply {
             setColorSchemeResources(R.color.GreenDark)
             isRefreshing = true
             //设置监听器，当用户手动下拉刷新的时候也要刷新数据
             setOnRefreshListener {
                 loadNotes()
             }
+
+            loadNotes()
         }
-
-        //初始化recycleview 绑定的第一步
-        commend_recyclerview.apply {
-            setHasFixedSize(true)
-            layoutManager= LinearLayoutManager(context)
-            //绑定第三步。做好adapter之后再回来绑定就可以
-            adapter= CommendAdapter(context,commendListItems)
-        }
-
-        //present层加载数据
-        loadNotes()
-
     }
 
-    fun onLoadNotesSuccess(){
+    fun onLoadNotesSuccess() {
         //加载成功之后要刷新一下数据
         swipeRefresh_home.isRefreshing = false
-        commend_recyclerview.adapter?.notifyDataSetChanged()
         context?.toast("加载推荐习题成功")
-    }
-
-    val commendListItems = mutableListOf<CommendListItem>()
-
-    //presenter层的实现
-    fun loadNotes(){
-        commendListItems.clear()
-
-
-        val note_point_texts = context?.resources?.getStringArray(R.array.know_point)
-        //val note_photo_items =
-        // 暂时没写图片的列表
-        val commend_data_texts = context?.resources?.getStringArray(R.array.commend_data)
-
-        //读取完数据之后需要做转换。上面定义的变量只是代表加载出来的数据。还需把加载出来的数据转换成UI界面需要看到的数据
-        note_point_texts?.forEach {
-            val commendListItem = CommendListItem(it,commend_data_texts.toString())
-            //把创建好的加入到可变的数据集合当中
-            commendListItems.add(commendListItem)
-            //然后去通知view层。让adapter去维护数据集合
-        }
-
-        //成功的话通知view层.但是现在暂未判断成功与否。默认成功了
-        onLoadNotesSuccess()
-
     }
 
     //以上是recyclerview的相关代码
@@ -127,11 +143,12 @@ class HomeFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == Activity.RESULT_OK){
+        if (resultCode == Activity.RESULT_OK) {
             val sdStatus = Environment.getExternalStorageState()
 
-            if (sdStatus != Environment.MEDIA_MOUNTED){
-                Toast.makeText(context,getString(R.string.insufficient_memory), Toast.LENGTH_SHORT).show()
+            if (sdStatus != Environment.MEDIA_MOUNTED) {
+                Toast.makeText(context, getString(R.string.insufficient_memory), Toast.LENGTH_SHORT)
+                    .show()
                 return
             }
 
@@ -141,10 +158,10 @@ class HomeFragment : Fragment() {
             var bitmap = bundle?.get("data") as Bitmap
 
             val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-            val file = File(path,filename)
+            val file = File(path, filename)
             val fos = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100,fos)
-            photoUri=Uri.fromFile(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            photoUri = Uri.fromFile(file)
 
             fos.flush()
             fos.close()
@@ -157,9 +174,11 @@ class HomeFragment : Fragment() {
 //            val intent=Intent(context,GetAnswerActivity::class.java)
 //            startActivity(intent)
 
-            val intent=Intent(context,
-                GetQuestionActivity::class.java)
-            intent.putExtra("photoUri",photoUri.toString())
+            val intent = Intent(
+                context,
+                GetQuestionActivity::class.java
+            )
+            intent.putExtra("photoUri", photoUri.toString())
             startActivity(intent)
 
         }
@@ -172,7 +191,11 @@ class HomeFragment : Fragment() {
         if (bitmap != null) {
             val m = Matrix()
             try {
-                m.setRotate(90F, (bitmap.width / 2).toFloat(), (bitmap.height / 2).toFloat()) //90就是我们需要选择的90度
+                m.setRotate(
+                    90F,
+                    (bitmap.width / 2).toFloat(),
+                    (bitmap.height / 2).toFloat()
+                ) //90就是我们需要选择的90度
                 val bmp2 = Bitmap.createBitmap(
                     bitmap,
                     0,

@@ -15,8 +15,8 @@ class CommendListItemView(context: Context?, attrs: AttributeSet?=null) : Relati
 
     //在这里给UI上对应位置的变量赋值！！！
     fun bindView(commendListItem: CommendListItem) {
-        commend_point_text.text = commendListItem.CommendPoint
+        commend_point_item_text.text = commendListItem.CommendPoint
         //中间还有个图片的绑定。暂留
-        commend_data_text.text = commendListItem.CommendData
+        commend_data_item_text.text = commendListItem.CommendData
     }
 }

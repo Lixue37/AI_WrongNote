@@ -24,9 +24,9 @@ class CommendDetailActivity:AppCompatActivity() {
 
         //获取该页面上的五个数据
         val commend_point_data = intent.getStringExtra("commend_point_data_text")
-        commend_point_data_text.text=commend_point_data
+        commend_point_data_actvt_text.text=commend_point_data
         val commend_data = intent.getStringExtra("commend_data_text")
-        commend_data_text.text=commend_data
+        commend_data_actvt_text.text=commend_data
     }
 
 

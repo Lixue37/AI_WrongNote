@@ -7,13 +7,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.example.ai_wrongnote.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.android.volley.Response
+import com.example.ai_wrongnote.R
+import data.CommendData
+import kotlinx.android.synthetic.main.activity_test.*
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         //绑定底部导航条
@@ -21,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         //获得BottomNavigationView
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         //获得Navigation的Control
-        val navController = Navigation.findNavController(this,
+        val navController = Navigation.findNavController(
+            this,
             R.id.fragment_nav
         )
         //绑定
@@ -34,8 +41,12 @@ class MainActivity : AppCompatActivity() {
 
 
         //启动连接数据库
-       // Thread(Runnable { DBConnection.link() }).start()
+        // Thread(Runnable { DBConnection.link() }).start()
+
+
     }
+
+
 }
 
 

@@ -1,16 +1,52 @@
 package com.example.ai_wrongnote.adapter
 
+import android.app.PendingIntent.getActivity
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ai_wrongnote.activity.CommendDetailActivity
-import com.example.ai_wrongnote.itemView.CommendListItemView
-import data.CommendListItem
-import org.jetbrains.anko.startActivity
+import com.example.ai_wrongnote.R
+import com.example.ai_wrongnote.fragment.HomeFragment
+import data.CommendData
 
-class CommendAdapter(val context: Context,val commendListItems: MutableList<CommendListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+//以下是按照jp的实例，把数据绑定的工作在一个adapter里完成，不再分成好几个类的方式
+class CommendAdapter(val context: Context, val commendList:List<CommendData>):RecyclerView.Adapter<CommendAdapter.Holder>(){
+
+        inner class  Holder(itemView:View):RecyclerView.ViewHolder(itemView){
+            //命名这里之所以多一个view是因为考虑到它就是一个中间变量，给下面赋值用的。避免混淆。
+            val commend_point_text_view = itemView.findViewById<TextView>(R.id.commend_point_item_text)
+            val commend_data_text_view = itemView.findViewById<TextView>(R.id.commend_data_item_text)
+
+            fun bind(position:Int){
+                commend_point_text_view.text = commendList[position].know_point
+                commend_data_text_view.text = commendList[position].note_data
+            }
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+            val commend_view = LayoutInflater.from(context).inflate(R.layout.item_commend,parent,false)
+
+            return Holder(commend_view)
+        }
+
+        override fun getItemCount(): Int =commendList.size
+
+        override fun onBindViewHolder(holder: Holder, position: Int) {
+            holder.bind(position)
+        }
+
+    }
+
+
+
+/*以下是按照B站视频中绑定recyclerview的方式，使用xxxadapter和 xxxListItemView和 xxxListItem 配套的方式。
+class CommendAdapter(val context: Context,val commendList: MutableList<CommendListItem>): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
+
         return CommendListItemViewHolder(CommendListItemView(context))
     }
 
@@ -18,20 +54,20 @@ class CommendAdapter(val context: Context,val commendListItems: MutableList<Comm
 
     }
 
-    override fun getItemCount(): Int =commendListItems.size
+    override fun getItemCount(): Int =commendList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         //需要真实数据做绑定
         //拿到holder hold住的item
         val commendListItemView = holder.itemView as CommendListItemView
-        commendListItemView.bindView(commendListItems[position])
+        commendListItemView.bindView(commendList[position])
 
-        val commendPoint = commendListItems[position].CommendPoint
-        val commendData=commendListItems[position].CommendData
+        val commendPoint = commendList[position].CommendPoint
+        val commendData=commendList[position].CommendData
         //点击item跳转到对应的详情页面 首先在这里设置监听事件
         commendListItemView.setOnClickListener{ context.startActivity<CommendDetailActivity>("commend_point_data_text" to commendPoint,"commend_data_text" to commendData) }
         //跳转过去时要传递过去对应的数据，所以在上一句的上面先定义好变量
 
     }
 
-}
+}*/
