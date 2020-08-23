@@ -120,5 +120,4 @@ class NoteFragment : Fragment() {
         //}
 
     }
-
 }

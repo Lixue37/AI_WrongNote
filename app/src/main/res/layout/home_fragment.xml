@@ -24,12 +24,12 @@
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_gravity="center|top|center_vertical"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/homeText" />
 
     <ImageView
         android:id="@+id/imageView3"
