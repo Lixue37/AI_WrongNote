@@ -8,43 +8,29 @@
 
     <TextView
         android:id="@+id/commend_data_actvt_text"
-        android:layout_width="197dp"
-        android:layout_height="64dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/GreenLL"
         android:text="这里是推荐的习题题干"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.06326034" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="537dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="429dp" />
+        app:layout_constraintGuide_percent="0.94" />
 
     <TextView
         android:id="@+id/how_control_text"
@@ -52,32 +38,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="掌握程度："
+        android:layout_marginTop="16dp"
+        android:text="请选择掌握程度："
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/half_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
+        android:layout_width="70dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:background="@color/BlueLight"
         android:text="基本懂"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/how_control_text" />
 
     <Button
         android:id="@+id/few_btn"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="45dp"
-        android:background="@color/BuleMiddle"
         android:text="懂一点"
         app:layout_constraintEnd_toStartOf="@+id/little_btn"
         app:layout_constraintStart_toEndOf="@+id/half_btn"
@@ -89,7 +74,6 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/BlueDark"
         android:text="不懂"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/few_btn" />
@@ -110,19 +94,19 @@
 
     <Button
         android:id="@+id/look_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="查看答案"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintTop_toBottomOf="@+id/how_hard_text2" />
 
     <Button
         android:id="@+id/close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="关闭答案"
@@ -135,8 +119,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/YellowLL"
         android:text="知识点："
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text" />
 
@@ -144,9 +130,9 @@
         android:id="@+id/commend_point_data_actvt_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:background="@color/YellowLL"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/know_point_txt2"
         app:layout_constraintTop_toTopOf="@+id/know_point_txt2" />
 
@@ -154,30 +140,31 @@
         android:id="@+id/how_hard_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/YellowLL"
         android:text="习题难度："
-        app:layout_constraintStart_toEndOf="@+id/commend_point_data_actvt_text"
-        app:layout_constraintTop_toTopOf="@+id/commend_point_data_actvt_text" />
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/know_point_txt2"
+        app:layout_constraintTop_toBottomOf="@+id/know_point_txt2" />
 
     <TextView
         android:id="@+id/commend_how_hard_data_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:background="@color/YellowLL"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.393"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/how_hard_text2"
         app:layout_constraintTop_toTopOf="@+id/how_hard_text2" />
 
     <TextView
         android:id="@+id/commend_answer_text"
-        android:layout_width="124dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/GreenLL"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/look_btn" />
@@ -186,19 +173,21 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="是否加入错题本？"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/commend_answer_text" />
 
     <Button
         android:id="@+id/yes_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:text="是"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView7"
@@ -211,5 +200,17 @@
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="280dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/GreenDark"
+        app:layout_constraintBottom_toTopOf="@+id/know_point_txt2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

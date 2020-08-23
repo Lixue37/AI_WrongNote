@@ -116,7 +116,6 @@ class HomeFragment : Fragment() {
         onLoadNotesSuccess()
     }
 
-
     fun init() {
         swipeRefresh_home.apply {
             setColorSchemeResources(R.color.GreenDark)
@@ -138,47 +137,45 @@ class HomeFragment : Fragment() {
     //以上是recyclerview的相关代码
 
 
-
-
     // 重载onActivityResult方法
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         //拍照功能
-            if (resultCode == Activity.RESULT_OK) {
-                val sdStatus = Environment.getExternalStorageState()
+        if (resultCode == Activity.RESULT_OK) {
+            val sdStatus = Environment.getExternalStorageState()
 
-                if (sdStatus != Environment.MEDIA_MOUNTED) {
-                    Toast.makeText(context, getString(R.string.insufficient_memory), Toast.LENGTH_SHORT)
-                        .show()
-                    return
-                }
-
-                val filename = DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))
-                    .toString() + ".jpg"
-                val bundle = data!!.extras
-                val bitmap = bundle?.get("data") as Bitmap
-
-                val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
-                val file = File(path, filename)
-                val fos = FileOutputStream(file)
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-                photoUri = Uri.fromFile(file)
-
-                fos.flush()
-                fos.close()
-
-                //bitmap = createPhotos(bitmap);
-
-                imageView3.setImageBitmap(bitmap)
-
-                val intent = Intent(
-                    context,
-                    GetQuestionActivity::class.java
-                )
-                intent.putExtra("photoUri", photoUri.toString())
-                startActivity(intent)
+            if (sdStatus != Environment.MEDIA_MOUNTED) {
+                Toast.makeText(context, getString(R.string.insufficient_memory), Toast.LENGTH_SHORT)
+                    .show()
+                return
             }
+
+            val filename = DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))
+                .toString() + ".jpg"
+            val bundle = data!!.extras
+            val bitmap = bundle?.get("data") as Bitmap
+
+            val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
+            val file = File(path, filename)
+            val fos = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            photoUri = Uri.fromFile(file)
+
+            fos.flush()
+            fos.close()
+
+            //bitmap = createPhotos(bitmap);
+
+            imageView3.setImageBitmap(bitmap)
+
+            val intent = Intent(
+                context,
+                GetQuestionActivity::class.java
+            )
+            intent.putExtra("photoUri", photoUri.toString())
+            startActivity(intent)
+        }
     }
 
 

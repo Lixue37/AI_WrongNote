@@ -12,4 +12,7 @@
     <color name="BlueLight">#7EC8E9</color>
     <color name="BuleMiddle">#29B3F1</color>
     <color name="BlueDark">#2196F3</color>
+    <color name="YellowLight">#F5EA90</color>
+    <color name="GreenLL">#B5E9B7</color>
+    <color name="YellowLL">#F7F3C0</color>
 </resources>
