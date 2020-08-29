@@ -1,7 +1,6 @@
 package com.example.ai_wrongnote.fragment
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -20,13 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import com.example.ai_wrongnote.BaseFragment
 import com.example.ai_wrongnote.HomeViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.GetQuestionActivity
 import com.example.ai_wrongnote.adapter.CommendAdapter
 import data.CommendData
-import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.home_fragment.*
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
@@ -34,7 +31,6 @@ import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
-import kotlinx.android.synthetic.main.activity_test.button as button1
 
 
 class HomeFragment : Fragment() {

@@ -1,7 +1,6 @@
 package com.example.ai_wrongnote.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_wrongnote.R
 import kotlinx.android.synthetic.main.activity_note.*
@@ -20,13 +19,15 @@ class NoteDetailActivity:AppCompatActivity() {
      }
 
      private fun initAllData() {
-          //首先隐藏错题答案图片
-          note_photo_answer.visibility = View.INVISIBLE
+          //获取页面上的三个数据
+          val know_point_data = intent.getStringExtra("know_point")
+          know_point_data_actvt_text.text = know_point_data
+          val how_hard_data = intent.getStringExtra("how_hard")
+          how_control_data_actvt_text.text = how_hard_data
+          val how_control_data = intent.getStringExtra("how_control")
+          how_hard_data_actvt_text.text = how_control_data
 
-          //获取该页面上的五个数据
-          val knowpoint_data = intent.getStringExtra("knowpoint_data_text")
-          know_point_data_text.text=knowpoint_data
      }
 
-     //fun getLayoutResId():Int = R.layout.activity_note
+
 }

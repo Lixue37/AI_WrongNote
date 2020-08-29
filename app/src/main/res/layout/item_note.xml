@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_note_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/know_point_text"
+        android:id="@+id/know_point_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -28,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/know_point_text"
+        app:layout_constraintTop_toBottomOf="@+id/know_point_item_text"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_note_photo" />
 
@@ -56,4 +57,14 @@
         app:layout_constraintEnd_toEndOf="@+id/note_photo_item"
         app:layout_constraintStart_toStartOf="@+id/note_photo_item"
         app:layout_constraintTop_toBottomOf="@+id/note_time_text" />
+
+    <TextView
+        android:id="@+id/word_data_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/note_photo_item"
+        app:layout_constraintStart_toStartOf="@+id/note_photo_item"
+        app:layout_constraintTop_toBottomOf="@+id/know_point_item_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

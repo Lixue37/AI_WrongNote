@@ -1,14 +1,59 @@
 package com.example.ai_wrongnote.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.NoteDetailActivity
-import com.example.ai_wrongnote.itemView.NoteListItemView
-import data.NoteListItem
-import org.jetbrains.anko.startActivity
+import data.NoteData
 
+class NoteAdapter (val context: Context, val noteList:List<NoteData>):RecyclerView.Adapter<NoteAdapter.Holder>(){
+
+    inner class  Holder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val know_point_text_view = itemView.findViewById<TextView>(R.id.know_point_item_text)
+        val word_data_test_view = itemView.findViewById<TextView>(R.id.word_data_test)
+
+        val commend_itemview = itemView.findViewById<ConstraintLayout>(R.id.cl_note_item)
+
+        fun bind(position:Int){
+            know_point_text_view.text = noteList[position].know_point
+            word_data_test_view.text = noteList[position].word_data
+
+            commend_itemview.setOnClickListener{
+                //Toast.makeText(context,noteList[position].answer, Toast.LENGTH_SHORT).show()
+
+                //进行页面跳转并且传递数据
+                val intent = Intent(context, NoteDetailActivity::class.java)
+                intent.putExtra("know_point",noteList[position].know_point)
+                intent.putExtra("how_control",noteList[position].how_control)
+                intent.putExtra("how_hard",noteList[position].how_hard)
+                context.startActivity(intent)
+
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        val commend_view = LayoutInflater.from(context).inflate(R.layout.item_note,parent,false)
+
+        return Holder(commend_view)
+    }
+
+    override fun getItemCount(): Int =noteList.size
+
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+        holder.bind(position)
+    }
+
+
+}
+
+/*
 class NoteAdapter(
     val context: Context,
     val noteListItems: MutableList<NoteListItem>
@@ -38,4 +83,4 @@ class NoteAdapter(
     class NoteListItemViewHolder(itemView: View?):RecyclerView.ViewHolder(itemView!!){
 
     }
-}
+}*/
