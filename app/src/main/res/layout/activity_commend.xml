@@ -36,8 +36,6 @@
         android:id="@+id/how_control_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="请选择掌握程度："
         android:textSize="16sp"
@@ -49,39 +47,38 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/half_btn"
-        android:layout_width="70dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:id="@+id/control_btn_100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="基本懂"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        android:text="完全懂"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/look_btn"
         app:layout_constraintTop_toBottomOf="@+id/how_control_text" />
 
     <Button
-        android:id="@+id/few_btn"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:text="懂一点"
-        app:layout_constraintEnd_toStartOf="@+id/little_btn"
-        app:layout_constraintStart_toEndOf="@+id/half_btn"
-        app:layout_constraintTop_toTopOf="@+id/half_btn" />
+        android:id="@+id/control_btn_80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="基本懂"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/control_btn_60"
+        app:layout_constraintStart_toEndOf="@+id/control_btn_100"
+        app:layout_constraintTop_toTopOf="@+id/control_btn_100" />
 
     <Button
-        android:id="@+id/little_btn"
-        android:layout_width="60dp"
+        android:id="@+id/control_btn_20"
+        android:layout_width="55dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
         android:text="不懂"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/few_btn" />
+        app:layout_constraintStart_toEndOf="@+id/control_btn_80"
+        app:layout_constraintTop_toBottomOf="@+id/control_btn_80" />
 
     <Button
         android:id="@+id/join_btn"
-        android:layout_width="76dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -90,14 +87,12 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/little_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/control_btn_20" />
 
     <Button
         android:id="@+id/look_btn"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
         android:text="查看答案"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -117,8 +112,6 @@
         android:id="@+id/know_point_txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="48dp"
         android:background="@color/YellowLL"
         android:text="知识点："
@@ -193,8 +186,6 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="系统推荐习题："
         android:textSize="16dp"
@@ -212,5 +203,22 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/control_btn_60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一知半解"
+        app:layout_constraintEnd_toEndOf="@+id/close_btn"
+        app:layout_constraintTop_toTopOf="@+id/control_btn_80" />
+
+    <Button
+        android:id="@+id/control_btn_40"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:text="基本不懂"
+        app:layout_constraintEnd_toStartOf="@+id/control_btn_80"
+        app:layout_constraintTop_toBottomOf="@+id/control_btn_100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

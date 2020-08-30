@@ -22,12 +22,11 @@
         android:id="@+id/note_photo_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintTop_toBottomOf="@+id/look_btn"
         app:srcCompat="@drawable/ic_note_photo" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -35,55 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <TextView
-        android:id="@+id/know_point_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="知识点："
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintGuide_percent="0.04" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="537dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.69" />
-
-    <Spinner
-        android:id="@+id/know_point_spinner"
-        android:layout_width="190dp"
-        android:layout_height="38dp"
-        android:entries="@array/know_point"
-        android:dropDownWidth="190dp"
-        android:spinnerMode="dropdown"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/know_point_text" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <TextView
         android:id="@+id/how_control_text"
@@ -97,40 +55,33 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/know_point_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/yes_btn" />
 
     <Button
-        android:id="@+id/half_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:id="@+id/control_btn_100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/BlueLight"
-        android:text="基本懂"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        android:text="完全懂"
+        app:layout_constraintStart_toStartOf="@+id/look_btn"
         app:layout_constraintTop_toBottomOf="@+id/how_control_text" />
 
     <Button
-        android:id="@+id/few_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
-        android:background="@color/BuleMiddle"
-        android:text="懂一点"
-        app:layout_constraintEnd_toStartOf="@+id/little_btn"
-        app:layout_constraintStart_toEndOf="@+id/half_btn"
-        app:layout_constraintTop_toTopOf="@+id/half_btn" />
+        android:id="@+id/control_btn_80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="基本懂"
+        app:layout_constraintEnd_toStartOf="@+id/control_btn_60"
+        app:layout_constraintStart_toEndOf="@+id/control_btn_100"
+        app:layout_constraintTop_toTopOf="@+id/control_btn_100" />
 
     <Button
-        android:id="@+id/little_btn"
-        android:layout_width="60dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/BlueDark"
+        android:id="@+id/control_btn_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="不懂"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/few_btn" />
+        app:layout_constraintStart_toEndOf="@+id/control_btn_80"
+        app:layout_constraintTop_toTopOf="@+id/control_btn_40" />
 
     <TextView
         android:id="@+id/how_hard_text"
@@ -142,7 +93,7 @@
         android:text="习题难度："
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/half_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/control_btn_40" />
 
     <Button
         android:id="@+id/easy_btn"
@@ -151,16 +102,16 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/PinkLight"
         android:text="易"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/how_hard_text" />
+        app:layout_constraintTop_toBottomOf="@+id/how_hard_text"
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <Button
         android:id="@+id/soso_btn"
         android:layout_width="60dp"
         android:layout_height="45dp"
-        android:background="@color/PinkMiddle"
         android:text="中"
         app:layout_constraintEnd_toStartOf="@+id/hard_btn"
         app:layout_constraintStart_toEndOf="@+id/easy_btn"
@@ -172,42 +123,42 @@
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/PinkDark"
         android:text="难"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/soso_btn" />
 
     <Button
         android:id="@+id/join_btn"
-        android:layout_width="76dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/GreenLight"
-        android:text="修改标签"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        android:text="确认修改标签"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintTop_toBottomOf="@+id/hard_btn" />
 
     <Button
         android:id="@+id/look_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
         android:text="查看原笔迹"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/how_control_text2" />
 
     <Button
         android:id="@+id/close_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="关闭图片"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toTopOf="@+id/look_btn" />
 
     <TextView
         android:id="@+id/know_point_txt2"
@@ -217,6 +168,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="知识点："
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/note_photo_problem" />
 
@@ -228,6 +180,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/know_point_txt2"
         app:layout_constraintTop_toBottomOf="@+id/note_photo_problem" />
 
@@ -239,6 +192,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="掌握程度："
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/know_point_txt2" />
 
@@ -250,6 +204,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/how_control_text2"
         app:layout_constraintTop_toBottomOf="@+id/know_point_data_actvt_text" />
 
@@ -260,6 +215,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="习题难度："
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/how_control_data_actvt_text"
         app:layout_constraintTop_toTopOf="@+id/how_control_data_actvt_text" />
 
@@ -270,7 +226,49 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/how_hard_text2"
         app:layout_constraintTop_toTopOf="@+id/how_hard_text2" />
+
+    <Button
+        android:id="@+id/yes_btn"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="是"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="是否修改掌握程度和难度？"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/note_photo_answer" />
+
+    <Button
+        android:id="@+id/control_btn_60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="一知半解"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/control_btn_80" />
+
+    <Button
+        android:id="@+id/control_btn_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="基本不懂"
+        app:layout_constraintEnd_toStartOf="@+id/control_btn_80"
+        app:layout_constraintTop_toBottomOf="@+id/control_btn_100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
