@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.NoteDetailActivity
-import data.NoteData
+import com.example.ai_wrongnote.data.NoteData
 
 class NoteAdapter (val context: Context, val noteList:List<NoteData>):RecyclerView.Adapter<NoteAdapter.Holder>(){
 

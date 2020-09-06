@@ -1,4 +1,4 @@
-package data
+package com.example.ai_wrongnote.data
 
 class CommendData(val know_point:String, val note_data:String,
                   val how_hard:String, val how_control:String, val answer:String) {

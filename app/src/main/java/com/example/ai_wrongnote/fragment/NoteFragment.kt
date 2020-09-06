@@ -12,7 +12,7 @@ import com.android.volley.toolbox.Volley
 import com.example.ai_wrongnote.NoteViewModel
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.adapter.NoteAdapter
-import data.NoteData
+import com.example.ai_wrongnote.data.NoteData
 import kotlinx.android.synthetic.main.note_fragment.*
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast

@@ -10,7 +10,7 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.android.volley.Response
 import com.example.ai_wrongnote.R
-import data.CommendData
+import com.example.ai_wrongnote.data.CommendData
 import kotlinx.android.synthetic.main.activity_test.*
 import org.json.JSONObject
 

@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ai_wrongnote.R
 import com.example.ai_wrongnote.activity.CommendDetailActivity
-import data.CommendData
+import com.example.ai_wrongnote.data.CommendData
 
 
 //以下是按照jp的实例，把数据绑定的工作在一个adapter里完成，不再分成好几个类的方式

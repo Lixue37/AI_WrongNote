@@ -1,6 +1,7 @@
 package com.example.ai_wrongnote.fragment
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Matrix
@@ -21,12 +22,14 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.ai_wrongnote.HomeViewModel
 import com.example.ai_wrongnote.R
+import com.example.ai_wrongnote.TestActivity
 import com.example.ai_wrongnote.activity.GetQuestionActivity
 import com.example.ai_wrongnote.adapter.CommendAdapter
-import data.CommendData
+import com.example.ai_wrongnote.data.CommendData
 import kotlinx.android.synthetic.main.home_fragment.*
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -123,6 +126,11 @@ class HomeFragment : Fragment() {
 
             loadNotes()
         }
+
+        //测试post请求的按钮调用
+        inter_test.setOnClickListener {
+            context?.startActivity<TestActivity>()
+        }
     }
 
     fun onLoadNotesSuccess() {
@@ -150,7 +158,7 @@ class HomeFragment : Fragment() {
             val filename = DateFormat.format("yyyyMMdd_hhmmss", Calendar.getInstance(Locale.CHINA))
                 .toString() + ".jpg"
             val bundle = data!!.extras
-            val bitmap = bundle?.get("data") as Bitmap
+            val bitmap = bundle?.get("com/example/ai_wrongnote/data") as Bitmap
 
             val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)
             val file = File(path, filename)
@@ -204,3 +212,5 @@ class HomeFragment : Fragment() {
         return bitmap!!
     }
 }
+
+

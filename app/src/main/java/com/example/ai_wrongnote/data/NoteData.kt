@@ -1,4 +1,4 @@
-package data
+package com.example.ai_wrongnote.data
 
 class NoteData(val know_point:String, val word_data:String,
                val how_hard:String, val how_control:String) {

@@ -63,4 +63,14 @@
             android:scrollbarSize="8dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <Button
+        android:id="@+id/inter_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="进入测试请求页面"
+        app:layout_constraintBottom_toTopOf="@+id/swipeRefresh_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
