@@ -22,7 +22,7 @@ class TestActivity: AppCompatActivity() {
        /* post_btn.setOnClickListener {
             val queue = Volley.newRequestQueue(this)
             var stringRequest = StringRequest(
-                "http://47.102.140.185:33060/",
+                "http://47.102.140.185:33060/similar",
                 Response.Listener {
                     val str = it.toString()
                     lable1.append(str)

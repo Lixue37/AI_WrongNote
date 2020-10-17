@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.ai_wrongnote.HomeViewModel
 import com.example.ai_wrongnote.R
@@ -76,22 +77,21 @@ class HomeFragment : Fragment() {
             Volley.newRequestQueue(getActivity()?.getApplicationContext()) //getActivity()?.getApplicationContext() 或者 getActivity() getContext()
         val commend_datas = mutableListOf<CommendData>()
 
-
         //button.setOnClickListener {
         commend_datas.clear()
         val jsonArrayRequest = JsonArrayRequest(
-            "http://47.102.140.185:8080/TestHandler.ashx",
+            "http://47.102.140.185:8080/RecommendItem.ashx",
             Response.Listener {
                 for (i in 0..it.length() - 1) {
                     val item = it.get(i) as JSONObject
                     val know_point = item["know_point"] as String
                     val note_data = item["note_data"] as String
-                    val how_hard = item["how_hard"] as String
-                    val how_control = item["how_control"] as String
+                    val how_hard = item["how_hard"] as Double
+                    //val how_control = item["how_control"] as String
                     val answer = item["answer"] as String
 
                     val commend_data =
-                        CommendData(know_point, note_data, how_hard, how_control, answer)
+                        CommendData(know_point, note_data, how_hard, answer)
                     commend_datas.add(commend_data)
 
 //                    lable1.append("${commend_data}\n")
@@ -127,10 +127,30 @@ class HomeFragment : Fragment() {
             loadNotes()
         }
 
+        //“我要推荐” 按钮监听事件，点击之后向服务器发送信号，开始运行算法
+        btn_recommend.setOnClickListener {
+            val queue = Volley.newRequestQueue(getActivity()?.getApplicationContext())
+            var stringRequest = StringRequest(
+                "http://47.102.140.185:33060/recommend",
+                Response.Listener {
+                    val str = it.toString()
+                    //Toast.makeText(context,str,Toast.LENGTH_SHORT).show()
+                    toast(str)
+                },
+                Response.ErrorListener {
+                    //lable1.text = it.message
+                    toast("推荐习题失败！请检查原因！")
+                }
+            )
+            queue.add(stringRequest)
+        }
+
+
         //测试post请求的按钮调用
+        /*预留，供测试使用！ 按钮的名字叫做inter_test，但美观起见先在layout里把该按钮删掉了
         inter_test.setOnClickListener {
             context?.startActivity<TestActivity>()
-        }
+        }*/
     }
 
     fun onLoadNotesSuccess() {

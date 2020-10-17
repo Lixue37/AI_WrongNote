@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SVCommend"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/commend_data_actvt_text"
@@ -47,47 +56,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/control_btn_100"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="完全懂"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/look_btn"
-        app:layout_constraintTop_toBottomOf="@+id/how_control_text" />
-
-    <Button
-        android:id="@+id/control_btn_80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="基本懂"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/control_btn_60"
-        app:layout_constraintStart_toEndOf="@+id/control_btn_100"
-        app:layout_constraintTop_toTopOf="@+id/control_btn_100" />
-
-    <Button
-        android:id="@+id/control_btn_20"
-        android:layout_width="55dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:text="不懂"
-        app:layout_constraintStart_toEndOf="@+id/control_btn_80"
-        app:layout_constraintTop_toBottomOf="@+id/control_btn_80" />
-
-    <Button
         android:id="@+id/join_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@color/GreenLight"
         android:text="加入错题本"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/control_btn_20" />
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <Button
         android:id="@+id/look_btn"
@@ -204,21 +183,46 @@
         app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/control_btn_60"
+    <RadioGroup
+        android:id="@+id/control_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="一知半解"
-        app:layout_constraintEnd_toEndOf="@+id/close_btn"
-        app:layout_constraintTop_toTopOf="@+id/control_btn_80" />
+        app:layout_constraintBottom_toTopOf="@+id/join_btn"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/how_control_text" >
 
-    <Button
-        android:id="@+id/control_btn_40"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:text="基本不懂"
-        app:layout_constraintEnd_toStartOf="@+id/control_btn_80"
-        app:layout_constraintTop_toBottomOf="@+id/control_btn_100" />
+        <RadioButton
+            android:id="@+id/control5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完全懂" />
+
+        <RadioButton
+            android:id="@+id/control4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="基本懂" />
+
+        <RadioButton
+            android:id="@+id/control3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一知半解  " />
+
+        <RadioButton
+            android:id="@+id/control2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="基本不懂  " />
+
+        <RadioButton
+            android:id="@+id/control1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完全不懂  " />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

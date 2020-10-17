@@ -6,30 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <TextView
-        android:id="@+id/homeText"
-        android:layout_width="123dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/menu_title_home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
     <Button
         android:id="@+id/camera"
         android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_gravity="center|top|center_vertical"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ic_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -63,14 +50,17 @@
             android:scrollbarSize="8dp" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <Button
-        android:id="@+id/inter_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="进入测试请求页面"
+    <ImageView
+        android:id="@+id/btn_recommend"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:srcCompat="@drawable/ic_change"
         app:layout_constraintBottom_toTopOf="@+id/swipeRefresh_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera" />
+        app:layout_constraintTop_toBottomOf="@+id/camera"
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
