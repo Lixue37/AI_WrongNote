@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_wrongnote.R
 import kotlinx.android.synthetic.main.activity_commend.*
+import org.jetbrains.anko.toast
 
 
 class CommendDetailActivity : AppCompatActivity() {
@@ -25,6 +26,10 @@ class CommendDetailActivity : AppCompatActivity() {
     fun initAllData() {
         //首先隐藏错题答案图片 以及掌握程度按钮
         commend_answer_text.visibility = View.INVISIBLE
+        textView10.visibility = View.INVISIBLE
+        answer_detail.visibility = View.INVISIBLE
+        answer_detail_image.visibility = View.INVISIBLE
+
         how_control_text.visibility = View.INVISIBLE
         control_list.visibility = View.INVISIBLE
         join_btn.visibility = View.INVISIBLE
@@ -43,84 +48,75 @@ class CommendDetailActivity : AppCompatActivity() {
         val answer = intent.getStringExtra("answer")
         commend_answer_text.text = answer
 
-        look_btn.setOnClickListener { commend_answer_text.visibility = View.VISIBLE }
-        close_btn.setOnClickListener { commend_answer_text.visibility = View.INVISIBLE }
+        //查看和关闭答案的开关
+        look_btn.setOnClickListener {
+            commend_answer_text.visibility = View.VISIBLE
+            textView10.visibility = View.VISIBLE
+            answer_detail.visibility = View.VISIBLE
+            answer_detail_image.visibility = View.VISIBLE
+        }
+        close_btn.setOnClickListener {
+            commend_answer_text.visibility = View.INVISIBLE
+            textView10.visibility = View.INVISIBLE
+            answer_detail.visibility = View.INVISIBLE
+            answer_detail_image.visibility = View.INVISIBLE
+        }
+
+        //加入错题本的开关
         yes_btn.setOnClickListener {
             how_control_text.visibility = View.VISIBLE
             control_list.visibility = View.VISIBLE
-
             join_btn.visibility = View.VISIBLE
 
+            var control_int: Int=0
+            //掌握程度单选框 监听事件 掌握程度，1代表完全不懂。5代表完全懂。
+            control_list.setOnCheckedChangeListener { group, checkedId ->
 
-           /* var control_select = findViewById<RadioGroup>(R.id.control_list)
+                when(checkedId){
+                    R.id.control1->{
+                        control_int =1
 
-
-            RadioButton radioButton1
-            RadioButton radioButton2
-            RadioButton radioButton3
-            @Override
-            protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_radio_button2);
-                radioGroup=findViewById(R.id.job_list);
-                radioButton1=findViewById(R.id.radio_button1);
-                radioButton2=findViewById(R.id.radio_button2);
-                radioButton3=findViewById(R.id.radio_button3);
-                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        getYourFavorite(checkedId);
                     }
-                });
+                    R.id.control5->{
+                        control_int =1
+                        //toast(control_int.toString())
+                    }
+                    R.id.control2->{
+                        control_int =3
+                        //toast(control_int.toString())
+                    }
+                    R.id.control4->{
+                        control_int =3
+                        //toast(control_int.toString())
+                    }
+                    R.id.control3->{
+                        control_int =5
+                        //toast(control_int.toString())
+                    }
+                }
+                //这个toast放在这里或者上面都可以
+                toast(control_int.toString())
+                //if(control1.id==checkedId || control5.id==checkedId) control_str=1 这种不要when的方法不行，虽然不知道为什么。会闪退并且自动重新打开app
             }
 
-            /**
-             * 根据ID,执行相应的逻辑
-             * @param buttonId
-             */
-            private void getYourFavorite(int buttonId){
-                switch (buttonId){
-                    case R.id.radio_button1:
-                    if(radioButton1.isChecked()) {
-                        Log.e(TAG, "你最爱的职业是: " + radioButton1.getText().toString());
-                    }
-                    break;
-                    case R.id.radio_button2:
-                    if(radioButton2.isChecked()) {
-                        Log.e(TAG, "你最爱的职业是: " + radioButton2.getText().toString());
-                    }
-                    break;
-                    case R.id.radio_button3:
-                    if(radioButton3.isChecked()) {
-                        Log.e(TAG, "你最爱的职业是: " + radioButton3.getText().toString());
-                    }
-                    break;
-                }
+            val how_use:Double=control_int + how_hard.toDouble()
 
-
-
-                sexRadioGroup = findViewById(R.id.rgSex) as RadioGroup
-            male = findViewById(R.id.male) as RadioButton
-            female = findViewById(R.id.female) as RadioButton
-            sexRadioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
-                var msg = ""
-                if (male.getId() === checkedId) {
-                    msg = "当前选中的性别为:" + male.getText().toString()
-                }
-                if (female.getId() === checkedId) {
-                    msg = "当前选中的性别为:" + female.getText().toString()
-                }
-                Toast.makeText(applicationContext, msg, Toast.LENGTH_LONG).show()
-            })
-
-
-            //掌握程度，1代表完全不懂。5代表完全懂。
-            val control_select=findViewById<RadioGroup>(R.id.control_list)
-
-            }*/
-
+            //“加入错题本”按钮监听事件
+            join_btn.setOnClickListener {
+                //在此将信息传入本地的SQLite
+                /*
+                * 文字题干：commend_data
+                * 题干图片：
+                * 知识点标签：commend_point_data
+                * 主观难度（其实此处是客观难度）：how_hard  （可能需要转成double型）
+                * 掌握程度：control_int （整型）
+                * 有用程度：how_use  (Double型）
+                * 时间戳：（本地的sqlite不需要时间戳）                *
+                * */
+            }
 
         }
+
     }
 
 

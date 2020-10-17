@@ -22,7 +22,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/GreenLL"
         android:text="这里是推荐的习题题干"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -72,7 +72,7 @@
         android:id="@+id/look_btn"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="查看答案"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/how_hard_text2" />
@@ -91,12 +91,12 @@
         android:id="@+id/know_point_txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:background="@color/YellowLL"
         android:text="知识点："
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text" />
+        app:layout_constraintTop_toBottomOf="@+id/commend_data_image" />
 
     <TextView
         android:id="@+id/commend_point_data_actvt_text"
@@ -145,11 +145,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="是否加入错题本？"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/commend_answer_text" />
+        app:layout_constraintTop_toBottomOf="@+id/answer_detail_image" />
 
     <Button
         android:id="@+id/yes_btn"
@@ -222,6 +222,45 @@
             android:layout_height="wrap_content"
             android:text="完全不懂  " />
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/commend_data_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/commend_data_actvt_text"
+        app:srcCompat="@drawable/ic_note_photo" />
+
+    <TextView
+        android:id="@+id/answer_detail"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="答案详解"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/answer_detail_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/answer_detail"
+        app:srcCompat="@drawable/ic_note_black_24dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="答案详解："
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/commend_answer_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
