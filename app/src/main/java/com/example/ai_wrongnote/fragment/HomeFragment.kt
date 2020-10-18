@@ -84,14 +84,20 @@ class HomeFragment : Fragment() {
             Response.Listener {
                 for (i in 0..it.length() - 1) {
                     val item = it.get(i) as JSONObject
+
+                    val sqcommend_data = item["commend_data"] as String
+                    val commend_data_image = item["commend_data_image"] as String
                     val know_point = item["know_point"] as String
-                    val note_data = item["note_data"] as String
-                    val how_hard = item["how_hard"] as Double
+                    val how_hard = item["how_hard"].toString() as String
                     //val how_control = item["how_control"] as String
                     val answer = item["answer"] as String
+                    val answer_detail = item["answer_detail"] as String
+                    val answer_detail_image = item["answer_detail_image"] as String
+
+                    //tip:表结构改了之后，先改上面这一列val，然后是Adapter，再然后是DetailActivity
 
                     val commend_data =
-                        CommendData(know_point, note_data, how_hard, answer)
+                        CommendData(sqcommend_data,commend_data_image,know_point, how_hard, answer,answer_detail,answer_detail_image)
                     commend_datas.add(commend_data)
 
 //                    lable1.append("${commend_data}\n")

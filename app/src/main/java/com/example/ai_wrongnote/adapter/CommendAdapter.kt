@@ -26,17 +26,20 @@ class CommendAdapter(val context: Context, val commendList:List<CommendData>):Re
 
             fun bind(position:Int){
                 commend_point_text_view.text = commendList[position].know_point
-                commend_data_text_view.text = commendList[position].note_data
+                commend_data_text_view.text = commendList[position].commend_data
 
                 commend_itemview.setOnClickListener{
                     Toast.makeText(context,commendList[position].answer,Toast.LENGTH_SHORT).show()
 
                     //进行页面跳转并且传递数据
                     val intent = Intent(context,CommendDetailActivity::class.java)
-                    intent.putExtra("commend_data",commendList[position].note_data)
-                    intent.putExtra("point_data",commendList[position].know_point)
+                    intent.putExtra("commend_data",commendList[position].commend_data)
+                    intent.putExtra("commend_data_image",commendList[position].commend_data_image)
+                    intent.putExtra("know_point",commendList[position].know_point)
                     intent.putExtra("how_hard",commendList[position].how_hard)
                     intent.putExtra("answer",commendList[position].answer)
+                    intent.putExtra("answer_detail",commendList[position].answer_detail)
+                    intent.putExtra("answer_detail_image",commendList[position].answer_detail_image)
                     context.startActivity(intent)
 
                 }
@@ -49,7 +52,7 @@ class CommendAdapter(val context: Context, val commendList:List<CommendData>):Re
             return Holder(commend_view)
         }
 
-        override fun getItemCount(): Int =commendList.size
+        override fun getItemCount(): Int =30
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             holder.bind(position)

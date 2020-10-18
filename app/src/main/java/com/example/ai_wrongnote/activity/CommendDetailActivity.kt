@@ -2,9 +2,6 @@ package com.example.ai_wrongnote.activity
 
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ai_wrongnote.R
 import kotlinx.android.synthetic.main.activity_commend.*
@@ -18,7 +15,7 @@ class CommendDetailActivity : AppCompatActivity() {
         init()
     }
 
-    //NoteAdapter里在跳转的时候传递了数据，但是如果要显示出来数据，还需要在这里进行显示
+    //CommendAdapter里在跳转的时候传递了数据，但是如果要显示出来数据，还需要在这里进行显示
     fun init() {
         initAllData()
     }
@@ -27,39 +24,56 @@ class CommendDetailActivity : AppCompatActivity() {
         //首先隐藏错题答案图片 以及掌握程度按钮
         commend_answer_text.visibility = View.INVISIBLE
         textView10.visibility = View.INVISIBLE
-        answer_detail.visibility = View.INVISIBLE
-        answer_detail_image.visibility = View.INVISIBLE
+        answer_detail_actvt_text.visibility = View.INVISIBLE
+        answer_detail_image_actvt.visibility = View.INVISIBLE
 
         how_control_text.visibility = View.INVISIBLE
         control_list.visibility = View.INVISIBLE
         join_btn.visibility = View.INVISIBLE
 
-        //获取该页面上的五个数据
-        val commend_point_data = intent.getStringExtra("point_data")
-        commend_point_data_actvt_text.text = commend_point_data
-        //测试能否拿到数据
-        //Toast.makeText(this,commend_point_data.toString(),Toast.LENGTH_SHORT).show()
 
-
+        /*Adapter已经绑定好数据，这里负责显示该页面上的7列数据*/
+        //题干文本框显示
         val commend_data = intent.getStringExtra("commend_data")
         commend_data_actvt_text.text = commend_data
-        val how_hard = intent.getStringExtra("how_hard")
+        //题干补充图片的显示（暂且将读出的图片名绑定道文本框中。后续可以根据名称绑定相应图片 ！！！！！！ 布局中图片的命名为commend_data_image_actvt
+        val commend_data_image = intent.getStringExtra("commend_data_image")
+        commend_data_image_txt.text = commend_data_image
+        //知识点文本框显示
+        val know_point = intent.getStringExtra("know_point")
+        commend_point_data_actvt_text.text = know_point
+        //难度文本框显示
+        var how_hard = intent.getStringExtra("how_hard")
+        if (how_hard==null) how_hard="-1.0"
         commend_how_hard_data_text.text = how_hard
-        val answer = intent.getStringExtra("answer")
+        //答案文本框显示
+        var answer = intent.getStringExtra("answer")
+        if (answer=="0")   answer="暂无答案"
         commend_answer_text.text = answer
+        //答案详解文本框显示
+        var answer_detail = intent.getStringExtra("answer_detail")
+        if (answer_detail=="0")   answer_detail="暂无详解"
+        answer_detail_actvt_text.text = answer_detail
+        //答案详解图片显示（暂且将读出的图片名绑定道文本框中。后续可以根据名称绑定相应图片 ！！！！！！！布局中图片的命名为answer_detail_image_actvt
+        val answer_detail_image = intent.getStringExtra("answer_detail_image")
+        answer_detail_image_txt.text = answer_detail_image
+
+
+        /*测试能否拿到数据*/
+        //Toast.makeText(this,commend_point_data.toString(),Toast.LENGTH_SHORT).show()
 
         //查看和关闭答案的开关
         look_btn.setOnClickListener {
             commend_answer_text.visibility = View.VISIBLE
             textView10.visibility = View.VISIBLE
-            answer_detail.visibility = View.VISIBLE
-            answer_detail_image.visibility = View.VISIBLE
+            answer_detail_actvt_text.visibility = View.VISIBLE
+            answer_detail_image_actvt.visibility = View.VISIBLE
         }
         close_btn.setOnClickListener {
             commend_answer_text.visibility = View.INVISIBLE
             textView10.visibility = View.INVISIBLE
-            answer_detail.visibility = View.INVISIBLE
-            answer_detail_image.visibility = View.INVISIBLE
+            answer_detail_actvt_text.visibility = View.INVISIBLE
+            answer_detail_image_actvt.visibility = View.INVISIBLE
         }
 
         //加入错题本的开关
@@ -99,19 +113,20 @@ class CommendDetailActivity : AppCompatActivity() {
                 //if(control1.id==checkedId || control5.id==checkedId) control_str=1 这种不要when的方法不行，虽然不知道为什么。会闪退并且自动重新打开app
             }
 
-            val how_use:Double=control_int + how_hard.toDouble()
+            val how_use:Double =control_int + how_hard.toDouble()
 
             //“加入错题本”按钮监听事件
             join_btn.setOnClickListener {
-                //在此将信息传入本地的SQLite
+                //在此将信息传入服务器上的userA表
                 /*
-                * 文字题干：commend_data
-                * 题干图片：
-                * 知识点标签：commend_point_data
-                * 主观难度（其实此处是客观难度）：how_hard  （可能需要转成double型）
+                * 文字题干：commend_data  （string）
+                * 题干图片：commend_data_image  （string）
+                * 笔记图片（就是这里的答案详情图片）：answer_detail_image （string）
+                * 知识点标签：commend_point_data  （string）
+                * 主观难度（其实此处是客观难度）：how_hard.toDouble()
                 * 掌握程度：control_int （整型）
                 * 有用程度：how_use  (Double型）
-                * 时间戳：（本地的sqlite不需要时间戳）                *
+                * 时间戳：时间戳我没做                *
                 * */
             }
 

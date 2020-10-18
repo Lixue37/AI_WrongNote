@@ -96,17 +96,18 @@
         android:text="知识点："
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/commend_data_image" />
+        app:layout_constraintTop_toBottomOf="@+id/commend_data_image_actvt" />
 
     <TextView
         android:id="@+id/commend_point_data_actvt_text"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:background="@color/YellowLL"
         android:text="TextView"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/know_point_txt2"
-        app:layout_constraintTop_toTopOf="@+id/know_point_txt2" />
+        app:layout_constraintEnd_toEndOf="@+id/commend_data_actvt_text"
+        app:layout_constraintStart_toStartOf="@+id/commend_data_actvt_text"
+        app:layout_constraintTop_toBottomOf="@+id/know_point_txt2" />
 
     <TextView
         android:id="@+id/how_hard_text2"
@@ -117,7 +118,7 @@
         android:text="习题难度："
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/know_point_txt2"
-        app:layout_constraintTop_toBottomOf="@+id/know_point_txt2" />
+        app:layout_constraintTop_toBottomOf="@+id/commend_point_data_actvt_text" />
 
     <TextView
         android:id="@+id/commend_how_hard_data_text"
@@ -149,7 +150,7 @@
         android:text="是否加入错题本？"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/answer_detail_image" />
+        app:layout_constraintTop_toBottomOf="@+id/answer_detail_image_actvt" />
 
     <Button
         android:id="@+id/yes_btn"
@@ -224,7 +225,7 @@
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/commend_data_image"
+        android:id="@+id/commend_data_image_actvt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -234,7 +235,7 @@
         app:srcCompat="@drawable/ic_note_photo" />
 
     <TextView
-        android:id="@+id/answer_detail"
+        android:id="@+id/answer_detail_actvt_text"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="答案详解"
@@ -245,13 +246,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <ImageView
-        android:id="@+id/answer_detail_image"
+        android:id="@+id/answer_detail_image_actvt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/answer_detail"
+        app:layout_constraintTop_toBottomOf="@+id/answer_detail_actvt_text"
         app:srcCompat="@drawable/ic_note_black_24dp" />
 
     <TextView
@@ -261,6 +262,28 @@
         android:text="答案详解："
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/commend_answer_text" />
+
+    <TextView
+        android:id="@+id/commend_data_image_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/commend_data_image_actvt"
+        app:layout_constraintStart_toEndOf="@+id/commend_data_image_actvt"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/answer_detail_image_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/answer_detail_image_actvt"
+        app:layout_constraintStart_toEndOf="@+id/answer_detail_image_actvt"
+        app:layout_constraintTop_toTopOf="@+id/answer_detail_image_actvt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
