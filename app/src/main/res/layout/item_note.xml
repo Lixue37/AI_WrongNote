@@ -8,63 +8,56 @@
 
     <TextView
         android:id="@+id/know_point_item_text"
-        android:layout_width="wrap_content"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/YellowLL"
         android:text="@string/notePointText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.025" />
 
     <ImageView
         android:id="@+id/note_photo_item"
-        android:layout_width="356dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/know_point_item_text"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_note_photo" />
 
     <TextView
-        android:id="@+id/note_time_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:text="录入日期：2020-07-26"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_photo_item"
-        app:layout_constraintVertical_bias="0.052" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="352dp"
         android:layout_height="8dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="16dp"
         android:background="@color/GreenDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/note_photo_item"
-        app:layout_constraintStart_toStartOf="@+id/note_photo_item"
-        app:layout_constraintTop_toBottomOf="@+id/note_time_text" />
+        app:layout_constraintEnd_toEndOf="@+id/know_point_item_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/know_point_item_text"
+        app:layout_constraintTop_toBottomOf="@+id/note_photo_item" />
 
     <TextView
         android:id="@+id/word_data_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginLeft="132dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/note_photo_item"
         app:layout_constraintStart_toStartOf="@+id/note_photo_item"
-        app:layout_constraintTop_toBottomOf="@+id/know_point_item_text" />
+        app:layout_constraintTop_toBottomOf="@+id/know_point_item_text"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

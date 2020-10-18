@@ -18,20 +18,24 @@ class NoteAdapter (val context: Context, val noteList:List<NoteData>):RecyclerVi
         val know_point_text_view = itemView.findViewById<TextView>(R.id.know_point_item_text)
         val word_data_test_view = itemView.findViewById<TextView>(R.id.word_data_test)
 
-        val commend_itemview = itemView.findViewById<ConstraintLayout>(R.id.cl_note_item)
+        val note_itemview = itemView.findViewById<ConstraintLayout>(R.id.cl_note_item)
 
         fun bind(position:Int){
-            know_point_text_view.text = noteList[position].know_point
-            word_data_test_view.text = noteList[position].word_data
+            know_point_text_view.text = noteList[position].note_point
+            word_data_test_view.text = noteList[position].note_data_image
 
-            commend_itemview.setOnClickListener{
+            note_itemview.setOnClickListener{
                 //Toast.makeText(context,noteList[position].answer, Toast.LENGTH_SHORT).show()
 
                 //进行页面跳转并且传递数据
                 val intent = Intent(context, NoteDetailActivity::class.java)
-                intent.putExtra("know_point",noteList[position].know_point)
-                intent.putExtra("how_control",noteList[position].how_control)
-                intent.putExtra("how_hard",noteList[position].how_hard)
+                intent.putExtra("note_data",noteList[position].note_data)
+                intent.putExtra("note_data_image",noteList[position].note_data_image)
+                intent.putExtra("note_answer_image",noteList[position].note_answer_image)
+                intent.putExtra("note_point",noteList[position].note_point)
+                intent.putExtra("note_hard",noteList[position].note_hard)
+                intent.putExtra("note_control",noteList[position].note_control)
+
                 context.startActivity(intent)
 
             }

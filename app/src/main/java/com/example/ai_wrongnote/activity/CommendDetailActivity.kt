@@ -33,7 +33,7 @@ class CommendDetailActivity : AppCompatActivity() {
         join_btn.visibility = View.INVISIBLE
 
 
-        /*Adapter已经绑定好数据，这里负责显示该页面上的7列数据*/
+        /*Adapter已经绑定好数据，这里负责显示该页面上的 7 列数据*/
         //题干文本框显示
         val commend_data = intent.getStringExtra("commend_data")
         commend_data_actvt_text.text = commend_data
@@ -146,7 +146,7 @@ class CommendDetailActivity : AppCompatActivity() {
                 //if(control1.id==checkedId || control5.id==checkedId) control_str=1 这种不要when的方法不行，虽然不知道为什么。会闪退并且自动重新打开app
             }
 
-            val how_use:Double =control_int + how_hard.toDouble()
+            val how_use:Float =control_int + how_hard.toFloat()
 
             //“加入错题本”按钮监听事件
             join_btn.setOnClickListener {
@@ -156,9 +156,9 @@ class CommendDetailActivity : AppCompatActivity() {
                 * 题干图片：commend_data_image  （string）
                 * 笔记图片（就是这里的答案详情图片）：answer_detail_image （string）
                 * 知识点标签：commend_point_data  （string）
-                * 主观难度（其实此处是客观难度）：how_hard.toDouble()
+                * 主观难度（其实此处是客观难度）：how_hard.toFloat()
                 * 掌握程度：control_int （整型）
-                * 有用程度：how_use  (Double型）
+                * 有用程度：how_use  (Float型）
                 * 时间戳：时间戳我没做                *
                 * */
             }

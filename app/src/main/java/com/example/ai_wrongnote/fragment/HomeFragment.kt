@@ -88,7 +88,7 @@ class HomeFragment : Fragment() {
                     val sqcommend_data = item["commend_data"] as String
                     val commend_data_image = item["commend_data_image"] as String
                     val know_point = item["know_point"] as String
-                    val how_hard = item["how_hard"].toString() as String
+                    val how_hard = item["how_hard"].toString()
                     //val how_control = item["how_control"] as String
                     val answer = item["answer"] as String
                     val answer_detail = item["answer_detail"] as String

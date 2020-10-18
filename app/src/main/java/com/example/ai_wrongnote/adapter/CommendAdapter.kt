@@ -52,7 +52,7 @@ class CommendAdapter(val context: Context, val commendList:List<CommendData>):Re
             return Holder(commend_view)
         }
 
-        override fun getItemCount(): Int =30
+        override fun getItemCount(): Int =commendList.size
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
             holder.bind(position)

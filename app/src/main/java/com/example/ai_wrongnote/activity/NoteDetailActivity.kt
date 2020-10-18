@@ -20,39 +20,77 @@ class NoteDetailActivity:AppCompatActivity() {
      }
 
      private fun initAllData() {
+          note_photo_answer.visibility = View.INVISIBLE
           how_control_text.visibility = View.INVISIBLE
-          control_btn_100.visibility = View.INVISIBLE
-          control_btn_80.visibility = View.INVISIBLE
-          control_btn_60.visibility = View.INVISIBLE
-          control_btn_40.visibility = View.INVISIBLE
-          control_btn_20.visibility = View.INVISIBLE
           how_hard_text.visibility = View.INVISIBLE
-          easy_btn.visibility = View.INVISIBLE
-          soso_btn.visibility = View.INVISIBLE
-          hard_btn.visibility = View.INVISIBLE
-          join_btn.visibility = View.INVISIBLE
+          radioGroup1.visibility = View.INVISIBLE
+          radioGroup2.visibility = View.INVISIBLE
 
 
-          //获取页面上的三个数据
-          val know_point_data = intent.getStringExtra("know_point")
-          know_point_data_actvt_text.text = know_point_data
-          val how_hard_data = intent.getStringExtra("how_hard")
-          how_control_data_actvt_text.text = how_hard_data
-          val how_control_data = intent.getStringExtra("how_control")
-          how_hard_data_actvt_text.text = how_control_data
+          /*Adapter已经绑定好数据，这里负责显示该页面上的 6 列数据*/
+          //题干文本框
+          val note_data = intent.getStringExtra("note_data")
+          note_data_actvt_txt.text = note_data
 
+          //题干图片
+          val note_data_image = intent.getStringExtra("note_data_image")
+          if (note_data_image=="0"){
+               note_photo_problem_txt.text ="暂无题干图片"
+               //此处无需绑定默认图片
+          }else{
+               note_photo_problem_txt.text = note_data_image
+               //预留了绑定图片的位置
+
+
+          }
+
+          //答案图片 or 原笔迹图片
+          val note_answer_image = intent.getStringExtra("note_answer_image")
+          if(note_answer_image=="0"){
+               note_photo_answer_txt.text = "暂无原笔迹或者答案图片"
+          }else{
+               note_photo_answer_txt.text =note_answer_image
+               //预留了绑定图片的位置
+
+
+          }
+
+          //知识点
+          val note_point = intent.getStringExtra("note_point")
+          if (note_point=="0"){
+               know_point_data_actvt_text.text="暂无知识点标签"
+          }else{
+               know_point_data_actvt_text.text = note_point
+          }
+
+          //掌握程度 不可能为空。用户录入错题必须选择掌握程度
+          val note_hard = intent.getStringExtra("note_hard")
+          how_control_data_actvt_text.text = note_hard
+
+          //习题难度 可能为空 因为推荐的习题里有的难度为空
+          val note_control = intent.getStringExtra("note_control")
+          if(note_control=="0.0"){
+               how_hard_data_actvt_text.text = "暂无难度"
+          }else{
+               how_hard_data_actvt_text.text =note_control
+          }
+
+
+          //查看原笔记 开关
+          look_btn.setOnClickListener {
+               note_photo_answer.visibility = View.VISIBLE
+          }
+          //关闭图片 开关
+          close_btn.setOnClickListener {
+               note_photo_answer.visibility = View.INVISIBLE
+          }
+
+          //修改难度和掌握程度
           yes_btn.setOnClickListener {
                how_control_text.visibility = View.VISIBLE
-               control_btn_100.visibility = View.VISIBLE
-               control_btn_80.visibility = View.VISIBLE
-               control_btn_60.visibility = View.VISIBLE
-               control_btn_40.visibility = View.VISIBLE
-               control_btn_20.visibility = View.VISIBLE
                how_hard_text.visibility = View.VISIBLE
-               easy_btn.visibility = View.VISIBLE
-               soso_btn.visibility = View.VISIBLE
-               hard_btn.visibility = View.VISIBLE
-               join_btn.visibility = View.VISIBLE
+               radioGroup1.visibility = View.VISIBLE
+               radioGroup2.visibility = View.VISIBLE
           }
 
      }

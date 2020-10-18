@@ -53,17 +53,20 @@ class NoteFragment : Fragment() {
         //button.setOnClickListener {
         note_datas.clear()
         val jsonArrayRequest = JsonArrayRequest(
-            "http://47.102.140.185:8080/TestHandler2.ashx",
+            "http://47.102.140.185:8080/MyNoteItem.ashx",
             Response.Listener {
                 for (i in 0..it.length() - 1) {
                     val item = it.get(i) as JSONObject
-                    val know_point = item["know_point"] as String
-                    val word_data = item["word_data"] as String
-                    val how_hard = item["how_hard"] as String
-                    val how_control = item["how_control"] as String
+
+                    val sqnote_data = item["note_data"] as String
+                    val note_data_image = item["note_data_image"] as String
+                    val note_answer_image = item["note_answer_image"] as String
+                    val note_point = item["note_point"] as String
+                    val note_hard = item["note_hard"].toString()
+                    val note_control = item["note_control"].toString()
 
                     val note_data =
-                        NoteData(know_point, word_data, how_hard, how_control)
+                        NoteData(sqnote_data,note_data_image,note_answer_image,note_point,note_hard,note_control)
                     note_datas.add(note_data)
 
 //                    lable1.append("${commend_data}\n")
