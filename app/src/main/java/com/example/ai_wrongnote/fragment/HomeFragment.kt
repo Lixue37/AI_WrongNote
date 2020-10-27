@@ -135,7 +135,10 @@ class HomeFragment : Fragment() {
 
         //“我要推荐” 按钮监听事件，点击之后向服务器发送信号，开始运行算法
         btn_recommend.setOnClickListener {
-            val queue = Volley.newRequestQueue(getActivity()?.getApplicationContext())
+
+            toast("You can refresh it!!!")
+
+            /*val queue = Volley.newRequestQueue(getActivity()?.getApplicationContext())
             var stringRequest = StringRequest(
                 "http://47.102.140.185:33060/recommend",
                 Response.Listener {
@@ -148,15 +151,29 @@ class HomeFragment : Fragment() {
                     toast("推荐习题失败！请检查原因！")
                 }
             )
-            queue.add(stringRequest)
+            queue.add(stringRequest)*/
         }
 
 
         //测试post请求的按钮调用
-        /*预留，供测试使用！ 按钮的名字叫做inter_test，但美观起见先在layout里把该按钮删掉了
-        inter_test.setOnClickListener {
-            context?.startActivity<TestActivity>()
-        }*/
+        //预留，供测试使用！ 按钮的名字叫做inter_test，但美观起见先在layout里把该按钮删掉了
+        test_button.setOnClickListener {
+            //context?.startActivity<TestActivity>()
+            val queue = Volley.newRequestQueue(getActivity()?.getApplicationContext())
+            var stringRequest = StringRequest(
+                "http://47.102.140.185:33060/similar",
+                Response.Listener {
+                    val str = it.toString()
+                    toast(str)
+                },
+                Response.ErrorListener {
+                    //lable1.text = it.message
+                    toast("请求数据失败")
+                }
+            )
+
+            queue.add(stringRequest)
+        }
     }
 
     fun onLoadNotesSuccess() {

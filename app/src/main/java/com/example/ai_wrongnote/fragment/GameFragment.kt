@@ -89,8 +89,8 @@ class GameFragment : Fragment() {
         //apple1-6的代码相似 我都是不会传值到下一个页面。注释掉的方法我试了却不行
         apple1.setOnClickListener {
             val intent = Intent(context,GameDetailActivity::class.java)
-            intent.putExtra("commend_data",game_datas[1].game_data)
-            intent.putExtra("commend_data_image",game_datas[1].game_data_image)
+            intent.putExtra("commend_data",game_datas[0].game_data)
+            intent.putExtra("commend_data_image",game_datas[0].game_data_image)
             //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
             //context?.startActivity<GameDetailActivity>()
             //context?.startActivity(intent)
@@ -103,6 +103,18 @@ class GameFragment : Fragment() {
 
         apple2.setOnClickListener {
             val intent = Intent(context,GameDetailActivity::class.java)
+            intent.putExtra("commend_data",game_datas[1].game_data)
+            intent.putExtra("commend_data_image",game_datas[1].game_data_image)
+            //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
+            //context?.startActivity<GameDetailActivity>()
+            //context?.startActivity(intent)
+            //toast(game_datas[1].game_data)
+            //context?.startActivity<GameDetailActivity>()
+
+        }
+
+        apple3.setOnClickListener {
+            val intent = Intent(context,GameDetailActivity::class.java)
             intent.putExtra("commend_data",game_datas[2].game_data)
             intent.putExtra("commend_data_image",game_datas[2].game_data_image)
             //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
@@ -113,7 +125,7 @@ class GameFragment : Fragment() {
 
         }
 
-        apple3.setOnClickListener {
+        apple4.setOnClickListener {
             val intent = Intent(context,GameDetailActivity::class.java)
             intent.putExtra("commend_data",game_datas[3].game_data)
             intent.putExtra("commend_data_image",game_datas[3].game_data_image)
@@ -125,41 +137,8 @@ class GameFragment : Fragment() {
 
         }
 
-        apple4.setOnClickListener {
-            val intent = Intent(context,GameDetailActivity::class.java)
-            intent.putExtra("commend_data",game_datas[4].game_data)
-            intent.putExtra("commend_data_image",game_datas[4].game_data_image)
-            //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
-            //context?.startActivity<GameDetailActivity>()
-            //context?.startActivity(intent)
-            //toast(game_datas[1].game_data)
-            //context?.startActivity<GameDetailActivity>()
 
-        }
 
-        apple5.setOnClickListener {
-            val intent = Intent(context,GameDetailActivity::class.java)
-            intent.putExtra("commend_data",game_datas[5].game_data)
-            intent.putExtra("commend_data_image",game_datas[5].game_data_image)
-            //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
-            //context?.startActivity<GameDetailActivity>()
-            //context?.startActivity(intent)
-            //toast(game_datas[1].game_data)
-            //context?.startActivity<GameDetailActivity>()
-
-        }
-
-        apple6.setOnClickListener {
-            val intent = Intent(context,GameDetailActivity::class.java)
-            intent.putExtra("commend_data",game_datas[6].game_data)
-            intent.putExtra("commend_data_image",game_datas[6].game_data_image)
-            //页面之间如何传值？？？！！！！！！！！？？？？？？？？？？？？？？？？？？？？？？ 还差一步，就是把值传给详情页面，在详情页面显示。
-            //context?.startActivity<GameDetailActivity>()
-            //context?.startActivity(intent)
-            //toast(game_datas[1].game_data)
-            //context?.startActivity<GameDetailActivity>()
-
-        }
 
 
 

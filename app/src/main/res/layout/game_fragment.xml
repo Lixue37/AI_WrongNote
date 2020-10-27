@@ -24,9 +24,9 @@
         android:id="@+id/apple2"
         android:layout_width="51dp"
         android:layout_height="59dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="92dp"
         android:src="@drawable/apple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apple1" />
@@ -35,8 +35,9 @@
         android:id="@+id/apple3"
         android:layout_width="62dp"
         android:layout_height="65dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:src="@drawable/apple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/apple1" />
@@ -45,33 +46,12 @@
         android:id="@+id/apple4"
         android:layout_width="62dp"
         android:layout_height="64dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginRight="192dp"
         android:src="@drawable/apple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apple3" />
-
-    <ImageView
-        android:id="@+id/apple5"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:src="@drawable/apple"
-        app:layout_constraintStart_toEndOf="@+id/apple2"
-        app:layout_constraintTop_toTopOf="@+id/apple4" />
-
-    <ImageView
-        android:id="@+id/apple6"
-        android:layout_width="96dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/apple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apple5" />
 
     <TextView
         android:id="@+id/textView9"
